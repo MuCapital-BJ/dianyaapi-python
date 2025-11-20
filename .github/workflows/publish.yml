@@ -41,11 +41,16 @@ jobs:
       - name: Configure git for Cargo
         run: |
           git config --global url."https://x-access-token:${{ secrets.DIANYA_TOKEN }}@github.com/".insteadOf "https://github.com/"
+          git config --global credential.helper store
+          echo "https://x-access-token:${{ secrets.DIANYA_TOKEN }}@github.com" > ~/.git-credentials
       - uses: actions/setup-python@v5
         with:
           python-version: 3.x
       - name: Build wheels
         uses: PyO3/maturin-action@v1
+        env:
+          CARGO_NET_GIT_FETCH_WITH_CLI: true
+          GIT_TERMINAL_PROMPT: 0
         with:
           target: ${{ matrix.platform.target }}
           args: --release --out dist --find-interpreter
@@ -75,11 +80,16 @@ jobs:
       - name: Configure git for Cargo
         run: |
           git config --global url."https://x-access-token:${{ secrets.DIANYA_TOKEN }}@github.com/".insteadOf "https://github.com/"
+          git config --global credential.helper store
+          echo "https://x-access-token:${{ secrets.DIANYA_TOKEN }}@github.com" > ~/.git-credentials
       - uses: actions/setup-python@v5
         with:
           python-version: 3.x
       - name: Build wheels
         uses: PyO3/maturin-action@v1
+        env:
+          CARGO_NET_GIT_FETCH_WITH_CLI: true
+          GIT_TERMINAL_PROMPT: 0
         with:
           target: ${{ matrix.platform.target }}
           args: --release --out dist --find-interpreter
@@ -105,12 +115,17 @@ jobs:
       - name: Configure git for Cargo
         run: |
           git config --global url."https://x-access-token:${{ secrets.DIANYA_TOKEN }}@github.com/".insteadOf "https://github.com/"
+          git config --global credential.helper store
+          echo "https://x-access-token:${{ secrets.DIANYA_TOKEN }}@github.com" > ~/.git-credentials
       - uses: actions/setup-python@v5
         with:
           python-version: 3.x
           architecture: ${{ matrix.platform.target }}
       - name: Build wheels
         uses: PyO3/maturin-action@v1
+        env:
+          CARGO_NET_GIT_FETCH_WITH_CLI: true
+          GIT_TERMINAL_PROMPT: 0
         with:
           target: ${{ matrix.platform.target }}
           args: --release --out dist --find-interpreter
@@ -135,11 +150,16 @@ jobs:
       - name: Configure git for Cargo
         run: |
           git config --global url."https://x-access-token:${{ secrets.DIANYA_TOKEN }}@github.com/".insteadOf "https://github.com/"
+          git config --global credential.helper store
+          echo "https://x-access-token:${{ secrets.DIANYA_TOKEN }}@github.com" > ~/.git-credentials
       - uses: actions/setup-python@v5
         with:
           python-version: 3.x
       - name: Build wheels
         uses: PyO3/maturin-action@v1
+        env:
+          CARGO_NET_GIT_FETCH_WITH_CLI: true
+          GIT_TERMINAL_PROMPT: 0
         with:
           target: ${{ matrix.platform.target }}
           args: --release --out dist --find-interpreter
@@ -157,8 +177,13 @@ jobs:
       - name: Configure git for Cargo
         run: |
           git config --global url."https://x-access-token:${{ secrets.DIANYA_TOKEN }}@github.com/".insteadOf "https://github.com/"
+          git config --global credential.helper store
+          echo "https://x-access-token:${{ secrets.DIANYA_TOKEN }}@github.com" > ~/.git-credentials
       - name: Build sdist
         uses: PyO3/maturin-action@v1
+        env:
+          CARGO_NET_GIT_FETCH_WITH_CLI: true
+          GIT_TERMINAL_PROMPT: 0
         with:
           command: sdist
           args: --out dist
