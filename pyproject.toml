@@ -1,0 +1,22 @@
+[project]
+name = "dianyaapi"
+version = "0.1.0"
+description = "Dianya Api python wrapper"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=9.0.0",
+    "pytest-asyncio>=1.0.0",
+]
+
+[build-system]
+requires = ["maturin>=1.5,<2.0"]
+build-backend = "maturin"
+
+[tool.maturin]
+sdist-exclude = ["example/**"]
+features = ["pyo3/extension-module"]
+python = ["3.8", "3.9", "3.10", "3.11", "3.12", "3.13", ""]

@@ -1,0 +1,20 @@
+[package]
+name = "dianyaapi"
+version = "0.1.0"
+edition = "2024"
+
+[lib]
+name = "dianyaapi"
+crate-type = ["cdylib"]
+
+[dependencies]
+common = { git = "https://github.com/MuCapital-BJ/dianyaapi_sdk.git", package = "common", features = ["pyo3"] }
+transcribe = { git = "https://github.com/MuCapital-BJ/dianyaapi_sdk.git", package = "transcribe" }
+
+pyo3 = { version = "0.27", features = ["extension-module", "macros"] }
+pyo3-async-runtimes = { version = "0.27", features = ["attributes", "tokio-runtime"] }
+tokio = { version = "1.48", features = ["rt-multi-thread", "macros"] }
+serde_json = { version = "1.0" }
+stream-cancel = { version = "0.8" }
+tokio-stream = { version = "0.1", features = ["sync"] }
+tungstenite = { version = "0.28", features = ["rustls-tls-native-roots"] }
