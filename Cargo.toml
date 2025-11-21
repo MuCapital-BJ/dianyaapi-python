@@ -8,8 +8,8 @@ name = "dianyaapi"
 crate-type = ["cdylib"]
 
 [dependencies]
-common = { git = "https://github.com/MuCapital-BJ/dianyaapi_sdk.git", package = "common", features = ["pyo3"] }
-transcribe = { git = "https://github.com/MuCapital-BJ/dianyaapi_sdk.git", package = "transcribe" }
+common = { git = "https://github.com/dianyaai/dianyaapi_sdk.git", package = "common", features = ["pyo3"] }
+transcribe = { git = "https://github.com/dianyaai/dianyaapi_sdk.git", package = "transcribe" }
 
 pyo3 = { version = "0.27", features = ["extension-module", "macros"] }
 pyo3-async-runtimes = { version = "0.27", features = ["attributes", "tokio-runtime"] }
